@@ -6,7 +6,7 @@ before_action :set_article, only: [:edit, :update, :show, :destroy]
   end
 
   def index
-    @article = Article.all
+    @articles = Article.all
   end
 
   def new
@@ -30,9 +30,6 @@ before_action :set_article, only: [:edit, :update, :show, :destroy]
       if @article.update(article_params)
         flash[:notice] = "Article was successfully updated"
         redirect_to @article
-      else
-        flash[:error] = "Something went wrong"
-        render 'edit'
       end
   end
 
