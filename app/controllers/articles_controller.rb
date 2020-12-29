@@ -14,6 +14,7 @@ before_action :set_article, only: [:edit, :update, :show, :destroy]
   end
 
   def edit
+
   end
   
   def create
@@ -27,14 +28,14 @@ before_action :set_article, only: [:edit, :update, :show, :destroy]
   end
 
   def update
-      if @article.update(article_params)
-        flash[:notice] = "Article was successfully updated"
-        redirect_to @article
-      end
+    if @article.update(article_params)
+      flash[:notice] = "Article was updated successfully."
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
-
   def destroy
-    
     @article.destroy
     redirect_to articles_path
   end
